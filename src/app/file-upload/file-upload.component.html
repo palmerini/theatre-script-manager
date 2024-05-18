@@ -1,0 +1,18 @@
+<div>
+  <input type="file" (change)="onFileSelected($event)">
+</div>
+<div *ngIf="characters.length">
+  <h3>Personaggi</h3>
+  <ul>
+    <li *ngFor="let character of characters" (click)="onSelectCharacter(character)">
+      {{ character }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="script.length">
+  <h3>Copione</h3>
+  <div *ngFor="let line of script">
+    <span [ngClass]="{ highlighted: isHighlighted(line.character) }">{{ line.character }}: {{ line.line }}</span>
+  </div>
+</div>
+
